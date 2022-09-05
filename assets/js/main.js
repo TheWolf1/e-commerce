@@ -1,28 +1,20 @@
 import { watchs } from "./relojes.js";
-
+import { printWatchs } from "./printContent.js";
 const productBody = document.querySelector("#productsBody");
-let html = ""
+const btnCarrito = document.querySelector("#btnCarrito");
+const cartContent = document.querySelector("#cartContent");
+printWatchs(productBody,watchs)
 
-function printWatchs(element) {
+
+productBody.addEventListener('click',(e)=>{
+    if (e.target.classList.contains('btn_add_cart')) {
+        const id = e.target.parentElement.parentElement.id;
+        console.log(id); 
+    }
     
-    watchs.forEach((watch,index)=>{
-        
-        html += `
-        <div class="products_body-item" id="${index}">
-            <div class="item_img">
-                <img src="${watch.url}" alt="">
-            </div>
-            <div class="item_info">
-                <h3>${watch.nombre}</h3>
-                <span>$${watch.precio}</span>
-                <button>Agregar al carrito</button>
-            </div>
-        </div>
-        `
-    })  
-    
-    productBody.innerHTML = html
-}
+});
 
 
-printWatchs(productBody)
+btnCarrito.addEventListener('click',(e)=>{
+    cartContent.classList.toggle("show_carrito");
+});

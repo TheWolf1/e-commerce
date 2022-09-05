@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OKDAN</title>
     <link rel="stylesheet" href="./assets/css/main.css">
+    <script src="https://kit.fontawesome.com/63741094f6.js" crossorigin="anonymous"></script> 
 </head>
 <body>
     <nav class="navbar">
@@ -27,7 +28,7 @@
         </div>
 
         <div class="carrito">
-            <p>carrito</p>
+            <i class="fa-solid fa-cart-shopping" id="btnCarrito"></i>
         </div>
     </nav>
     <section class="home" id="home">
@@ -57,5 +58,22 @@
     <section class="sales" id="sales"></section>
     <section class="contact" id="contact"></section>
     <script src="./assets/js/main.js" type="module"></script>
+
+    <div class="cart_content " id="cartContent">
+        <div class="card_item">
+            <div class="card_info">
+                <img src="./images/products/clock-1.jpg" alt="">
+                <div class="card_title">
+                    <h4>Nombre del relog</h4>
+                    <span>$2230</span>
+                    <div class="card_buttons">
+                        <button class="btn" id="btnRemove">-</button> <span>1</span> <button class="btn" id="btnAdd">+</button>
+                    </div>
+                    <i class="fa fa-trash"></i>
+                </div>
+            </div>
+            
+        </div>
+    </div>
 </body>
 </html>
