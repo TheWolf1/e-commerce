@@ -1,4 +1,5 @@
 let html =""
+let cartArray = {};
 
 function printWatchs(element,watchs) {
     
@@ -24,8 +25,49 @@ function printWatchs(element,watchs) {
 
 function printInCart(element,watchs,id) {
     
+    
+    if (cartArray[id]) {
+        cartArray[id].amount ++
+    } else {
+        
+        cartArray[id] = watchs[id];
+        cartArray[id].amount = 1; 
+    }
+    let htmlCart = printAllCart();
+    
+    element.innerHTML = htmlCart;
+}
+
+function printAllCart() {
+    let htmlCart = '';
+    for (const i in cartArray) {
+
+        htmlCart += `
+        <div class="card_item" id="${cartArray[i].id}">
+            <div class="card_info" >
+                <img src="${cartArray[i].url}" alt="">
+                <div class="card_title">
+                    <h4>${cartArray[i].nombre}</h4>
+                    <span>$${cartArray[i].precio}</span>
+                    <div class="card_buttons">
+                        <button class="btn" id="btnRemove">-</button>
+                        <span>${cartArray[i].amount}</span> 
+                        <button class="btn"  id="btnAdd">+</button>
+                        <i class="fa fa-trash" id="btnDelete"></i>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        `;
+    }
+    return htmlCart;
 }
 
 export{
-    printWatchs
+    printWatchs,
+    printInCart,
+    printAllCart,
+    cartArray
 }
