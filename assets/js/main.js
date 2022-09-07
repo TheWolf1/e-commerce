@@ -9,10 +9,24 @@ const productBody = document.querySelector("#productsBody");
 const btnCarrito = document.querySelector("#btnCarrito");
 const cartContent = document.querySelector("#cartContent");
 
-
-
-
 printWatchs(productBody,watchs);
+
+
+
+/* abrir el menu */
+const btnHamburguer = document.querySelector("#btnHamburguer");
+const menu = document.querySelector("#menuItem");
+let menuAbierto = false;
+btnHamburguer.addEventListener('click',(e)=>{
+    
+    if (menuAbierto) {
+        menu.style.transform = "translateX(-200%)";
+        menuAbierto = false;
+    }else{
+        menu.style.transform = "translateX(0)";
+        menuAbierto = true;
+    }
+});
 
 
 productBody.addEventListener('click',(e)=>{
